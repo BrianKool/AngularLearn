@@ -1,25 +1,24 @@
 import { Component } from '@angular/core';
-import {increment, decrement, reset, selectCount} from "./counter.action";
-import {select, Store} from "@ngrx/store";
+import {increment, decrement, reset} from "../states/counter/counter.actions";
+import {Store, select} from "@ngrx/store";
 import {Observable} from "rxjs";
-
+import {AsyncPipe} from "@angular/common";
 
 
 @Component({
   selector: 'app-mycounter',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe ],
   // templateUrl: './mycounter.component.html',
   template:
     `
-        <main>
           Count: {{ count$ | async }}
+          <p></p>
 
           <button (click)="increment()">Increment</button>
           <button (click)="decrement()">Decrement</button>
           <button (click)="reset()">Reset</button>
 
-        </main>
 
     `,
   styleUrl: './mycounter.component.css'
@@ -28,8 +27,8 @@ import {Observable} from "rxjs";
 export class MycounterComponent {
   public count$: Observable<number>;
 
-  constructor(private store: Store<{ count: number }>) {
-    this.count$ = store.pipe(select(selectCount));
+  constructor(private store: Store<{ count: number}>) {
+    this.count$ = store.select('count');
   }
 
   public increment() {
