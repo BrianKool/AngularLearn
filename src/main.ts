@@ -5,7 +5,8 @@ import {provideRouter} from "@angular/router";
 import routeConfig from './app/routes';
 import {provideState, provideStore} from '@ngrx/store';
 import {counterReducer} from "./app/states/counter/counter.reducer";
+import {cartReducer} from "./app/states/cart/cart.reducer";
 
 bootstrapApplication(AppComponent, {
-  providers: [provideProtractorTestingSupport(), provideRouter(routeConfig), provideStore(), provideState('count', counterReducer)],
+  providers: [provideProtractorTestingSupport(), provideRouter(routeConfig), provideStore(), provideState('sandy', counterReducer), provideState('Cartcount', cartReducer)],
 }).catch((err) => console.error(err));

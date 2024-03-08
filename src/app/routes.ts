@@ -3,6 +3,7 @@ import {HomeComponent} from "./home/home.component";
 import {DetailsComponent} from "./details/details.component";
 import {FormbuildPageComponent} from "./formbuild-page/formbuild-page.component";
 import {MycounterComponent} from "./mycounter/mycounter.component";
+import {ShopingMainpageComponent} from "./shoping-mainpage/shoping-mainpage.component";
 
 const routeConfig : Routes = [
   {
@@ -28,6 +29,11 @@ const routeConfig : Routes = [
     component: MycounterComponent,
     title: 'My counter',
   },
+  {
+    path: 'product',
+    component: ShopingMainpageComponent,
+    title: 'product',
+  }
 ];
 
 export default routeConfig;

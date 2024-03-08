@@ -27,8 +27,10 @@ import {AsyncPipe} from "@angular/common";
 export class MycounterComponent {
   public count$: Observable<number>;
 
-  constructor(private store: Store<{ count: number}>) {
-    this.count$ = store.select('count');
+  //the "sandy" is what i put a random word to figure out the connection
+  //you have to change the name in main.ts -> provideState(name, *reducername*)
+  constructor(private store: Store<{ sandy: number}>) {
+    this.count$ = store.select('sandy');
   }
 
   public increment() {
