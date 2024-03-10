@@ -1,5 +1,11 @@
 # Biba
 
+## NGRX learning note
+
+The NGRX has several key components: action(createAction) -> reducer(createReducer) -->
+-> store(create data structure item{state}, initialize before use) -->
+->selector(createFeatureSelector {every data structure has to slice in a feature} & createSelector use the feature to slice down into selector) -> Component view(register the Store, then ('this.store.select(**selector** or **created selector name when no selector_file**)')) 
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.2.
 
 ## Development server
