@@ -1,14 +1,17 @@
 import {createReducer, on} from "@ngrx/store";
 import {addProduct, removeProduct} from "./cart.action";
-import {state} from "@angular/animations";
 
+
+//this is the data structure of CartState, can be seperated in to another file: state.ts
 export interface CartState {
   count: number,
   like: boolean
 }
 
+//initialise the data from 0 and false
 export const initialCartState: CartState = {
-  count: 0, like: false
+  count: 0, 
+  like: false
 }
 
 

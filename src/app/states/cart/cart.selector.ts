@@ -1,10 +1,13 @@
-import {AppStore} from "../app.store";
-import {createSelector} from "@ngrx/store";
+// import {AppStore} from "../app.store";
+import {createSelector, createFeatureSelector} from "@ngrx/store";
+import { CartState } from "./cart.reducer";
 
 
-export const selectCartCount = (state: AppStore) => state.counter;
+export const selectCartState = createFeatureSelector<CartState>('cart');
+
+
 
 export const cartCountSelector = createSelector(
-  selectCartCount,
+  selectCartState,
   (state) => state.count
 )

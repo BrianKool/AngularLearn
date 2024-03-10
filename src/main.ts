@@ -8,5 +8,8 @@ import {counterReducer} from "./app/states/counter/counter.reducer";
 import {cartReducer} from "./app/states/cart/cart.reducer";
 
 bootstrapApplication(AppComponent, {
-  providers: [provideProtractorTestingSupport(), provideRouter(routeConfig), provideStore(), provideState('sandy', counterReducer), provideState('Cartcount', cartReducer)],
+  //                                                                                                      the sandy is because there no selector in counter ngrx , so this.store.select(**name**) which the name is what you create when use
+  //                                                                                                                                             the cart is what you have to name it when create feature, and register in main.ts       
+  //                                                                                         provide state ** need to call in both main.ts and app.config.ts ** not sure the problem which add provideState in app.config.ts is fine but in this case need to add in both files                      
+  providers: [provideProtractorTestingSupport(), provideRouter(routeConfig), provideStore(), provideState('sandy', counterReducer), provideState('cart', cartReducer)],
 }).catch((err) => console.error(err));

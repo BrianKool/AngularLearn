@@ -21,7 +21,7 @@ import {AppStore} from "../states/app.store";
       <section>
         <div style="width: 70%;"><p>haha</p></div>
         <div>
-          <img src="../../assets/cart_icon.png" alt="this is a cart logo icon" width="64" height="64" >
+          <img src="../../assets/cart_icon.png" alt="this is a cart logo icon" width="32" height="32" >
           count: {{cartCount$ | async}}
         </div>
 
@@ -42,13 +42,17 @@ import {AppStore} from "../states/app.store";
   `,
   styleUrl: './shoping-mainpage.component.css'
 })
-export class ShopingMainpageComponent {
-  public cartCount$ : Observable<number>;
 
+
+////////////////////////////////////////////////////////////////////////////////////
+//This shopping cart component page is misfeatured by adding and delete
+//different products 
+////////////////////////////////////////////////////////////////////////////////////
+export class ShopingMainpageComponent {
+  public cartCount$ = this.store.select(cartCountSelector)
 
 
   constructor(private store: Store<AppStore>){
-    this.cartCount$ = this.store.select(cartCountSelector)
   }
 
   public products =
